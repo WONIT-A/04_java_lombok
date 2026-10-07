@@ -39,6 +39,12 @@ public class Practice1Before {
         Optional<Account> a = findAccount("1002-345-678901");
 //        System.out.println("출금 결과: " + withdraw(a, 100_000L));
         Optional<Account> none = findAccount("9999-000-000000");
+        // .isPresent / .orElse
+        System.out.println(findAccount("1002-345-678901").orElse(new Account("00000", "없음", 0, "불가"))); // 있는 계좌
+        System.out.println(findAccount("9999-000-000000").orElse(new Account("00000", "없음", 0, "불가"))); // 없는 계좌
+
+        System.out.println(findAccount("1002-345-678901").isPresent()); // 있는 계좌
+        System.out.println(findAccount("9999-000-000000").isEmpty()); // 없는 계좌
 //        System.out.println("없는 계좌 잔액: " + none.balance());
     }
 }
